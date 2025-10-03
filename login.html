@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('https://img.goodfon.com/original/1920x1080/1/61/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg') no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #e50914;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #f40612;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        a {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="img/moflix-logo.png" alt="">
+        <h1>Sign In</h1>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email or phone number" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+            <p class="error-message" id="errorMessage"></p>
+        </form>
+        <p><a href="#">Forgot password?</a></p>
+        <p>New to Moflix? <a href="#">Sign up now</a>.</p>
+    </div>
+    <script>
+        document.querySelector('#loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+            const errorMessage = document.querySelector('#errorMessage');
+            
+            if (email === "admin@example.com" && password === "password123") {
+                errorMessage.style.color = 'green';
+                errorMessage.textContent = 'Login successful!';
+                setTimeout(() => { window.location.href = 'profile.html'; }, 1000);
+            } else {
+                errorMessage.style.color = 'red';
+                errorMessage.textContent = 'Invalid email or password';
+            }
+        });
+    </script>
+</body>
+</html>
